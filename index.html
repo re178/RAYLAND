@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><!-- Rayland Esilesi --Rayland Esilesi | Portfolio</title>
+  <meta name="description" content="<!-- Rayland Esilesi | Web Developer, Programmer, and Designer showcasing projects and skills. -->">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1324; --surface:#101a33; --text:#e8eeff; --muted:#a8b3cf;
+      --brand:#6ae3ff; --brand2:#8b5cf6; --ring:rgba(106,227,255,.35);
+      --outline:rgba(255,255,255,.08);
+      --shadow:0 10px 30px rgba(0,0,0,.25)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text); background:
+      radial-gradient(1100px 600px at 80% -10%, rgba(139,92,246,.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 30%, rgba(106,227,255,.18), transparent 60%),
+      var(--bg);
+      line-height:1.6; -webkit-font-smoothing:antialiased; scroll-behavior:smooth
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1120px,92%); margin-inline:auto}
+    /* Nav */
+    header{
+      position:sticky; top:0; z-index:40; backdrop-filter: blur(10px);
+      background:linear-gradient(180deg, rgba(11,19,36,.9), rgba(11,19,36,.55));
+      border-bottom:1px solid var(--outline)
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:0 0 14px var(--brand)}
+    .links{display:flex; gap:18px; align-items:center}
+    .links a{color:var(--muted); font-weight:600; font-size:.95rem}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--outline); color:var(--text); background:#0d1730; box-shadow:var(--shadow)}
+    .btn--primary{border:none; background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#0a1225; font-weight:800}
+    /* Sections */
+    section{padding:46px 0}
+    .section-title{font-size:1.6rem; margin:0 0 10px}
+    .section-sub{color:var(--muted); margin:0 0 22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.00));
+      border:1px solid var(--outline); border-radius:18px; box-shadow:var(--shadow)}
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:24px; align-items:center; padding:64px 0 34px}
+    .hero h1{font-size:clamp(2rem, 3.4vw + .8rem, 3.2rem); line-height:1.1; margin:0 0 12px}
+    .lead{color:var(--muted); font-size:clamp(1rem, .9rem + .5vw, 1.1rem); margin:0 0 22px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .pfp{aspect-ratio:1/1; border-radius:16px; border:1px dashed var(--outline); display:grid; place-items:center; color:var(--muted);
+      background:
+      radial-gradient(120px 120px at 20% 10%, rgba(106,227,255,.22), transparent 60%),
+      radial-gradient(160px 160px at 70% 80%, rgba(139,92,246,.22), transparent 60%),
+      #0c162b}
+    /* About */
+    .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+    .about-body{padding:18px}
+    /* Projects */
+    .projects{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .project{overflow:hidden}
+    .thumb{aspect-ratio:16/10; background:#0e1830 center/cover no-repeat; border-bottom:1px solid var(--outline)}
+    .project-body{padding:14px 16px}
+    .project h3{margin:2px 0 6px; font-size:1.08rem}
+    .tags{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{font-size:.78rem; padding:6px 10px; border-radius:999px; border:1px solid var(--outline); color:var(--muted)}
+    .project-actions{display:flex; gap:10px; margin-top:10px}
+    /* Skills */
+    .skills{display:flex; flex-wrap:wrap; gap:10px}
+    .skill{padding:9px 12px; border-radius:10px; background:#0d1730; border:1px solid var(--outline); color:#cdd6f8; font-weight:600}
+    /* Contact */
+    .contact-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:18px; align-items:center}
+    form{display:grid; gap:12px}
+    input, textarea{
+      background:#0d1730; color:var(--text); border:1px solid var(--outline); border-radius:12px;
+      padding:12px 14px; outline:2px solid transparent; outline-offset:2px; font:inherit
+    }
+    input:focus, textarea:focus{outline-color:var(--ring)}
+    .muted{color:var(--muted)}
+    /* Footer */
+    footer{padding:30px 0 60px; color:var(--muted); font-size:.95rem}
+    .socials{display:flex; gap:14px; flex-wrap:wrap}
+    .chip{border:1px solid var(--outline); border-radius:999px; padding:8px 12px}
+    /* Responsive */
+    @media (max-width:980px){ .hero{grid-template-columns:1fr} .about-grid{grid-template-columns:1fr} .projects{grid-template-columns:1fr 1fr} .contact-grid{grid-template-columns:1fr} }
+    @media (max-width:620px){ .projects{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+
+  <!-- ====== QUICK FILL GUIDE ======
+    Replace ALL-CAPS tokens:
+    YOUR_NAME, YOUR_TITLE, YOUR_TAGLINE
+    YOUR_EMAIL, YOUR_PHONE
+    YOUR_CITY_COUNTRY
+    SOCIAL_LINK_TWITTER/LINKEDIN/GITHUB
+    PROJECT_#: image URL, title, desc, tags, live/demo link, repo link
+    ================================== -->
+
+  <!-- Nav -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span><!-- TODO: Rayland Esilesi --> Rayland Esilesi </span>
+      </div>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" id="downloadCV" href="<!-- TODO: CV_FILE_URL e.g. files/cv.pdf -->" download>Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div>
+        <h1><!-- TODO: YOUR_TITLE --> Creative Developer</h1>
+        <p class="lead"><!-- TODO: YOUR_TAGLINE --> I build clean, fast, accessible web experiences.</p>
+        <div class="cta">
+          <a class="btn btn--primary" href="#projects">See Projects</a>
+          <a class="btn" href="mailto:<!-- TODO: esilesirayland@gmail.com --> esilesirayland@gmail.com">Email Me</a>
+        </div>
+        <p class="muted" style="margin-top:10px">
+          📍 <!-- TODO: KENYA --> Nairobi, Kenya · ☎ <!-- TODO: YOUR_PHONE --> +254741742291
+        </p>
+        <div class="socials" style="margin-top:12px">
+          <a class="chip" href="<!-- TODO: https://github.com/raylandesilesi -->#" target="_blank" rel="noopener">GitHub</a>
+          <a class="chip" href="<!-- TODO: https://linkedin.com/in/raylandesilesi -->#" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip" href="<!-- TODO: https://twitter.com/raylandesilesi -->#" target="_blank" rel="noopener">Twitter/X</a>
+        </div>
+      </div>
+      <div class="card pfp">
+        <!-- TODO: Replace this whole box with your <img src="YOUR_PHOTO_URL" alt="rayland_esilesi" class="pfp"> -->
+         profile photo 
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-sub">A quick intro and the value I bring.</p>
+
+      <div class="about-grid">
+        <div class="card about-body">
+          <p><!-- TODO: I’m Rayland Esilesi, a Full-Stack Developer specializing in web development  -->
+            I’m <!-- Rayland Esilesi -->, a <!-- YOUR_TITLE --> focused on building delightful digital products.
+            I care about clean UI, performance, and real-world impact.
+          </p>
+          <ul>
+            <li>✅ Frontend: HTML, CSS, JavaScript — <!-- TODO: e.g., Frontend: React, HTML, CSS, JS --></li>
+            <li>✅ Backend: Python, VBA, Firebase — <!-- TODO: e.g., Backend: Firebase, Node.js --></li>
+            <li>✅ UI/UX & Accessibility, Performance Optimization — <!-- TODO: e.g., UI/UX, Accessibility, SEO --></li>
+          </ul>
+        </div>
+        <div class="card about-body">
+          <h3 style="margin:6px 0 10px">Highlights</h3>
+          <ul>
+            <li>🚀Built a School Management System for Destiny Hero School used daily by staff and students <!-- TODO: Built a School Management System for Destiny Hero School used daily by staff and students  --></li>
+            <li>🧠Self-taught with multiple certifications in web development and VBA automation <!-- TODO: Self-taught with multiple certifications in web development and VBA automation --></li>
+            <li>🤝Collaborated with local startups to design efficient digital solutions <!-- TODO: Collaborated with local startups to design efficient digital solutions --></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">A few things I’ve built recently.</p>
+
+      <div class="projects">
+        <!-- PROJECT 1 -->
+        <article class="card project">
+          <div class="thumb" style="background-image:url('<!-- TODO: PROJECT_1_IMAGE_URL --> https://picsum.photos/800/500?1');"></div>
+          <div class="project-body">
+            <h3><!-- TODO: PROJECT_1_TITLE --> Project One</h3>
+            <p class="muted"><!-- TODO: PROJECT_1_DESC --> A VBA-powered system for managing student data, fees, timetables, and backups efficiently.</p>
+            <div class="tags">
+              <span class="tag"><!-- TODO: Tag --> HTML</span>
+              <span class="tag"><!-- TODO: Tag --> CSS</span>
+              <span class="tag"><!-- TODO: Tag --> JS</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn--primary" href="<!-- TODO: PROJECT_1_LIVE_LINK -->#" target="_blank" rel="noopener">Live</a>
+              <a class="btn" href="<!-- TODO: PROJECT_1_REPO_LINK -->#" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="card project">
+          <div class="thumb" style="background-image:url('<!-- TODO: PROJECT_2_IMAGE_URL --> https://picsum.photos/800/500?2');"></div>
+          <div class="project-body">
+            <h3><!-- TODO: PROJECT_2_TITLE --> Project Two</h3>
+            <p class="muted"><!-- TODO: PROJECT_2_DESC --> Access to Technologies advanced digital skills .</p>
+            <div class="tags">
+              <span class="tag">Firebase</span>
+              <span class="tag">Auth</span>
+              <span class="tag">Hosting</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn--primary" href="<!-- TODO: PROJECT_2_LIVE_LINK -->#" target="_blank" rel="noopener">Live</a>
+              <a class="btn" href="<!-- TODO: PROJECT_2_REPO_LINK -->#" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="card project">
+          <div class="thumb" style="background-image:url('<!-- TODO: PROJECT_3_IMAGE_URL --> https://picsum.photos/800/500?3');"></div>
+          <div class="project-body">
+            <h3><!-- TODO: PROJECT_3_TITLE --> Project Three</h3>
+            <p class="muted"><!-- TODO: PROJECT_3_DESC --> Start up for small and medium businesses across the continent .</p>
+            <div class="tags">
+              <span class="tag">API</span>
+              <span class="tag">UI/UX</span>
+              <span class="tag">Performance</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn--primary" href="<!-- TODO: PROJECT_3_LIVE_LINK -->#" target="_blank" rel="noopener">Live</a>
+              <a class="btn" href="<!-- TODO: PROJECT_3_REPO_LINK -->#" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-sub">Technologies and tools I work with.</p>
+      <div class="skills">
+        <!-- TODO: Replace with your real skills -->
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Firebase</span>
+        <span class="skill">Git/GitHub</span>
+        <span class="skill">UI/UX</span>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Want to collaborate or have a question? Reach out.</p>
+
+      <div class="contact-grid">
+        <div class="card" style="padding:18px">
+          <form id="contactForm" onsubmit="return handleSubmit(event)">
+            <!-- NOTE: This is a static form (no backend). It opens the user's email app. -->
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="from" placeholder="Your email" required>
+            <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+            <button class="btn btn--primary" type="submit">Send Message</button>
+            <p class="muted" style="margin:8px 0 0">Send <code>mailto:</code>  via your email app.</p>
+          </form>
+        </div>
+        <div class="card" style="padding:18px">
+          <h3 style="margin:6px 0 12px">Direct</h3>
+          <p>
+            Email: <a href="mailto:<!-- TODO: esilesirayland@gmail.com --> esilesirayland@gmail.com"><!-- esilesirayland@gmail.com --> esilesirayland@gmail.com</a><br>
+            WhatsApp/Phone: <!-- TODO: YOUR_PHONE --> +254741742291
+          </p>
+          <div class="socials" style="margin-top:8px">
+            <a class="chip" href="<!-- TODO: SOCIAL_LINK_GITHUB -->#" target="_blank" rel="noopener">GitHub</a>
+            <a class="chip" href="<!-- TODO: SOCIAL_LINK_LINKEDIN -->#" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="chip" href="<!-- TODO: SOCIAL_LINK_TWITTER -->#" target="_blank" rel="noopener">Twitter/X</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <hr style="border:0; height:1px; background:var(--outline); margin:0 0 20px">
+    <div style="display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap">
+      <span>© <span id="year"></span> <!-- TODO: RAYLAND --> RAYLAND. All rights reserved.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Download CV guard: if no file set, prevent empty download
+    document.getElementById('downloadCV').addEventListener('click', function(e){
+      if(this.getAttribute('href') === '#' || this.getAttribute('href').trim() === ''){
+        e.preventDefault();
+        alert('TODO: Add your CV file URL to the Download CV button.');
+      }
+    });
+
+    // Mailto contact (static)
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      const name = encodeURIComponent(form.name.value);
+      const from = encodeURIComponent(form.from.value);
+      const msg = encodeURIComponent(form.message.value);
+      const email = "<!-- TODO: esilesirayland@gmail.com --> esilesirayland@gmail.com"; // <— Set your email
+      const subject = encodeURIComponent("Portfolio Inquiry from " + form.name.value);
+      const body = `From: ${name} (%3C${from}%3E)%0D%0A%0D%0A${msg}`;
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+      form.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
